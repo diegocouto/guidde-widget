@@ -5,6 +5,7 @@
   "scripts": {
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
+    "build": "build-storybook -c .storybook -o public",
     "build-storybook": "build-storybook"
   },
   "repository": "https://github.com/diegocouto/guidde-widget",
