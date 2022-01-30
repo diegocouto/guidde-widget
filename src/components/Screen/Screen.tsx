@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Screen.css";
 
 interface Props {
+  isOpen?: boolean;
   url: string;
   closeButtonBackgroundColor?: string;
   closeButtonColor?: string;
@@ -10,6 +11,8 @@ interface Props {
 }
 
 function Screen(props: Props) {
+  const [hasLoaded, setHasLoaded] = useState(false);
+
   const screenUrl = new URL(props.url);
   const buttonStyle = {
     backgroundColor: props.closeButtonBackgroundColor,
@@ -18,9 +21,17 @@ function Screen(props: Props) {
 
   screenUrl.searchParams.append("embedded", "true");
 
+  if (!props.isOpen) {
+    return null;
+  }
+
   return (
-    <div className="guidde-screen-wrapper">
-      <iframe src={screenUrl.toString()} />
+    <div className={`guidde-screen-wrapper ${props.isOpen ? "open" : ""}`}>
+      <iframe
+        src={screenUrl.toString()}
+        onLoad={() => setHasLoaded(true)}
+        className={`${hasLoaded ? "loaded" : ""}`}
+      />
 
       <button onClick={props.onClose} style={buttonStyle}>
         <svg
@@ -43,6 +54,7 @@ function Screen(props: Props) {
 Screen.defaultProps = {
   closeButtonBackgroundColor: "#f3f4f6",
   closeButtonColor: "#11181d",
+  isOpen: false,
 };
 
 export default Screen;
