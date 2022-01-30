@@ -1,20 +1,20 @@
-.guidde-widget-button {
+.guidde-button {
   border: none;
   border-radius: 100%;
   cursor: pointer;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
   transition: transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   padding: 1rem;
   width: 60px;
   height: 60px;
 }
 
-.guidde-widget-button:active {
+.guidde-button:active {
   transform: scale(0.94);
 }
 
-.guidde-widget-button svg {
+.guidde-button svg {
   width: 100%;
   height: 100%;
 }

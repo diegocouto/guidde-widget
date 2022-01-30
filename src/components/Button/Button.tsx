@@ -1,16 +1,16 @@
 import React from "react";
 
-import "./WidgetButton.css";
+import "./Button.css";
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundColor?: string;
   color?: string;
 }
 
-function WidgetButton({ backgroundColor, color, style, ...props }: Props) {
+function Button({ backgroundColor, color, style, ...props }: Props) {
   return (
     <button
-      className="guidde-widget-button"
+      className="guidde-button"
       style={{ ...style, backgroundColor, color }}
       {...props}
     >
@@ -26,9 +26,9 @@ function WidgetButton({ backgroundColor, color, style, ...props }: Props) {
   );
 }
 
-WidgetButton.defaultProps = {
+Button.defaultProps = {
   backgroundColor: "#9333ea",
   color: "#ffffff",
 };
 
-export default WidgetButton;
+export default Button;

@@ -1,1 +1,2 @@
-export { default as Widget } from "./WidgetButton";
+export { default as WidgetButton } from "./Button";
+export { default as Screen } from "./Screen";
